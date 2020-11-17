@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc} 
 \usepackage[margin=2cm]{geometry}  
-\usepackage[portuguese]{babel} 
+\usepackage[brazilian]{babel} 
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -82,7 +82,7 @@
 		\label{real}
 	\end{figure}
 	
-	\section{Utilização}
+	\chapter{Utilização}
 	Ao ser aplicada uma diferença de temperatura entre a junção de metais e as extremidades livres, haverá a geração de uma diferença de potencial da ordem de mV (milivolts) entre estas extremidades, da qual pode ser medida por um sistema de aquisição, utilizando-se comumente um multímetro como pode ser observado no esquemático da Figura \ref{esquematico}.
 	
 	\hfill \break
@@ -252,23 +252,86 @@
 	
 	%gráficos equações----
 	\section{Potência Termoelétrica}
+
+	A potência termoelétrica é a relação que expressa a quantidade de milivolts, gerada a cada variação de $1^{\circ}C$ de variação de temperatura, expressa na Equação \ref{potencia_termoelétrica}.
 	
-	%equaçoes e gráficos ------
+	\begin{equation}
+		P_{T} = \frac{mV}{^{\circ}C}
+		\label{potencia_termoelétrica}
+	\end{equation}
+
+	\singlespacing
+
+	Como a tensão gerada por $1^{\circ}C$ de variação é um número muito pequeno e como a variação da F.E.M. gerada em função da temperatura não é linear, é usual definir-se a potência termoelétrica média no intervalo de utilização de cada termopar e multiplicar-se este valor por 100°C.
+
+	\singlespacing
+
+	A potência termelétrica é muito útil na caracterização e comparação dos termopares, indicando principalmente a sensibilidade do dispositivo. Quanto maior for a sua variação de tensão, mais sensível é o sensor.
+
+	
 	\section{Leis Termoelétricas}
 	
-	Relações eletromagnéticas .....
+	Com a descoberta dos efeitos termoelétricos, a partir da aplicação das leis da termodinâmica, foi enunciado as três leis que contêm toda a base da teoria termoelétrica, aplicados em componentes como termopares. E Portanto a partir destas leis, podemos compreender todos os fenômenos que ocorrem na medida de temperatura com estes sensores. 
+
+	\subsection{Lei do circuito Homogêneo}
+
+	A lei do circuito homogêneo enuncia que: “A F.E.M. termal, desenvolvida em um circuito termoelétrico de dois metais diferentes, com suas junções às temperaturas T1 e T2, é independente do gradiente de temperatura e de sua distribuição ao longo dos fios." Isso significa que, a F.E.M. medida depende única e exclusivamente da composição química dos dois metais e das temperaturas existentes nas junções.
+
+	\singlespacing
+
+	Um exemplo de aplicação prática desta lei é que podemos ter uma grande variação de temperatura em um ponto qualquer, ao longo dos fios dos Termopares, como esquematizado na Figura \ref{lei1}, que esta não influirá na F.E.M. produzida pela diferença de temperatura entre as juntas. Portanto, garante-se fazer medidas de temperatura em pontos bem definidos com os Termopares, pois o importante é a diferença de temperatura entre as juntas.
+
+	\singlespacing
+
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=.4]{Lei1.jpg}
+		\caption{Exemplo da Lei do Circuito Homogêneo}
+		\label{lei1}
+	\end{figure}
 	
+	\subsection{Lei dos Metais Intermediários}
+
+	A lei dos metais intermediários enuncia que: "A soma algébrica das F.E.M. termais, em um circuito composto de um número qualquer de metais diferentes, é zero se todo o circuito estiver à mesma temperatura”. Em outras palavras, esta lei estabelece que em um circuito, composto de dois metais diferentes, a tensão gerada não será modificada caso seja inserido um outro metal intermediário em qualquer ponto do circuito, desde que as junções recém formadas sejam mantidas a uma mesma temperatura devida. Isto ocorre devido ao fato de que a tensão gerada a partir destas duas novas junções será igual a zero. Este princípio por sua vez garante o uso de fios de extensão, bem como de conectores, como  representado na Figura \ref{lei2}.
+
+	\singlespacing
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=.5]{lei2.jpg}
+		\caption{Exemplo dos Metais Intermediários}
+		\label{lei2}
+	\end{figure}
+	
+
+	\subsection{Lei das Temperaturas Intermediárias}
+
+	“A F.E.M. produzida em circuito termoelétrico de dois metais homogêneos e diferentes entre si, com as suas junções às temperaturas T1 e T3 respectivamente, é a soma algébrica da F.E.M. deste circuito, com as junções às temperaturas T1 e T2, e a F.E.M. deste mesmo circuito, com as junções às temperaturas T2 e T3”. Podemos ver os esquema dessa lei representada na Figura \ref{lei3}.
+	 
+	\singlespacing
+
+	Assim, como consequência direta deste princípio, pode-se efetuar correções caso termopares que foram calibrados a uma determinada temperatura de referência possam ser utilizados em qualquer outra temperatura de referência.
+
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=.4]{lei3.jpg}
+		\caption{Exemplo das Temperaturas Intermediárias}
+		\label{lei3}
+	\end{figure}
+
 	\section{Simulações}
 	
 	Simulações em Python ----
 	
+
 	\section{Conclusão}
 	
-	\section{Referências}
+	% \section{Referências}
 	\nocite{*}
 	
+
+	\bibliography{IEEEabrv,materiais}
 	\bibliographystyle{IEEEtran}
-	%\bibliography{Materiais}
 	
 \end{document}
 
