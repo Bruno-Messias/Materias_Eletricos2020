@@ -8,6 +8,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{mwe}
+\usepackage{textcomp} %Impede erros do gensymb
 \usepackage{gensymb} %Degree º symbol
 \usepackage{pdflscape} %landscape pages
 \usepackage{amsmath}
@@ -197,12 +198,52 @@
 	
 	É possível, ainda, comprar designs analógicos e digitais de referência para instrumentação de termopares. Um exemplo é o design \texttt{TIDA-00468} da \textit{Texas Instruments\textsuperscript{TM}}, que oferece sensoriamento de -270\degree C até +1372\degree C para termopares do tipo K.
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.6]{tida.jpg}\\
+		\caption{Placa \textit{front-end} \texttt{TIDA-00468}, contendo sistema digital e filtros para termopares do tipo K. Fonte: Texas Instruments.}
+	\end{figure}
+	
 	A escolha do design é importante, visto que o custo agregado ao sensoriamento pode ser até maior que o custo do dispositivo em si, apesar do sensoriamento digital ser relativamente barato no presente momento.
 	
 	Na tabela a seguir é possível ver caraterísticas de operação de alguns tipos de termopares populares.
 	
+	Outras aplicações de termopares incluem transformação de energia térmica em energia elétrica. Um bom exemplo disso são \textbf{RITEG}s, \textit{Radioisotope Thermoelectric Generators}. Tais dispositivos são utilizados em diversos satélites e em missões espaciais. 
+	
+	O sistema consiste em um material radiotivo, que gera calor via decaimento $\alpha, \beta$ ou $\gamma$ de um núcleo radioativo (por exemplo, um cilindro de \texttt{plutônio-238}) com diversos termopares ao redor, com seus lados "frios" respectivamente grudados em aletas.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{plutonium_pellet.jpg}\\
+		\caption{Pellet de Plutônio-238. Fonte: Creative Commons.}
+	\end{figure}
+
+	Os termopares utilizados nesse caso específico das missões de telescópio são de silício-germânio (SiGe), e foram escolhidos para essa aplicação por apresentarem bom comportamento na \textit{range} de temperatura de trabalho e uma boa resistência mecânica, novamente enfatizando que a escolha de termopares vai muito além de alguns poucos parâmetros.
+
+	O esquema geral pode ser apresentado pelo seguinte esquemático:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{sige_rtg.png}\\
+		\caption{Esquemático de um RITEG. Fonte: Parker Beatty CC BY-SA 4.0.}
+	\end{figure}
+\newpage
+
+	Pelo já citado efeito \textit{Seeback} (ver seção 2.1). Informações exatas quantificando a produção de energia por esses dispositivos são escassas.
+	
+	Equipamentos desse tipo foram usados nas missões do programa Apollo, e um exemplo desse equipamento (em cinza, no centro) pode ser observado na seguinte fotografia tirada na Lua (outros módulos de outras missões que retornaram com os astronautas ainda se encontram no fundo do mar).
+	
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{apollo.jpg}\\
+		\caption{Um RITEG na Lua. Fonte: NASA/Alan Shepard PD-USGOV-NASA.}
+	\end{figure}
+	
 	\begin{landscape}
-		
+			A seguinte tabela sumariza alguns - mas não todos - tipos de termopares comerciais e suas características físicas de acordo com [REFERÊNCIA]. Vale notar que essa tabela não leva em consideração, por exemplo, características mecânicas dos dispositivos, ou resistência a interferência eletromagnética.
+			
+			\vspace{2cm}
+			
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|c|c|}
 				\hline 
@@ -229,7 +270,7 @@
 			\end{tabular} 
 		\end{center}
 	\end{landscape}
-	Esses dispositivos podem ser divididos em dois grupos principais:
+	Esses dispositivos também podem ser classificados em dois grupos principais:
 	
 	\begin{itemize}
 		\item Nobres: Contém ligas nobres na sua composição, como platina. Geralmente possuem uma temperatura mais alta de operaçã. Exemplos incluem os tipos R, S e B.
@@ -253,16 +294,16 @@
 	%gráficos equações----
 	\section{Potência Termoelétrica}
 
-	A potência termoelétrica é a relação que expressa a quantidade de milivolts, gerada a cada variação de $1^{\circ}C$ de variação de temperatura, expressa na Equação \ref{potencia_termoelétrica}.
+	A potência termoelétrica é a relação que expressa a quantidade de milivolts, gerada a cada variação de $1^\degree C$ de variação de temperatura, expressa na Equação \ref{potencia_termoeletrica}.
 	
 	\begin{equation}
 		P_{T} = \frac{mV}{^{\circ}C}
-		\label{potencia_termoelétrica}
+		\label{potencia_termoeletrica}
 	\end{equation}
 
 	\singlespacing
 
-	Como a tensão gerada por $1^{\circ}C$ de variação é um número muito pequeno e como a variação da F.E.M. gerada em função da temperatura não é linear, é usual definir-se a potência termoelétrica média no intervalo de utilização de cada termopar e multiplicar-se este valor por 100°C.
+	Como a tensão gerada por $1^{\circ}C$ de variação é um número muito pequeno e como a variação da F.E.M. gerada em função da temperatura não é linear, é usual definir-se a potência termoelétrica média no intervalo de utilização de cada termopar e multiplicar-se este valor por 100\degree C.
 
 	\singlespacing
 
@@ -325,6 +366,11 @@
 	
 
 	\section{Conclusão}
+	O estudo realizado demonstra que a classificação de termopares não é feita de forma binária, com peculiaridades em cada aplicação: tempo de resposta, faixa de temperatura, precisão e outras características supracitadas. Esses aspectos devem ser levados em consideração na hora de se escolher o tipo de termopar a ser usado para correta aferição de temperatura, ou seja, o melhor termopar é aquele que melhor se adequa a sua aplicação. 
+	
+	Vale contar, também, que o termopar é muito mais do que um dispositivo \textit{standalone}, e sim um transdutor que compõe parte de um sistema integral, numa junção multidisciplinar de física teórica, processamento e condicionamento de sinais, como observado em produtos comerciais especializados para tal.
+	
+	O esclarecimento dos processos que ocorrem, como o efeito Seebeck e o efeito Peltier nos permitem compreender o funcionamento desse dispositivo, e, de fato, como simular, tomar nota sobre seu comportamento e limitações.
 	
 	% \section{Referências}
 	\nocite{*}
