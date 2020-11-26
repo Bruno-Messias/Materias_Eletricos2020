@@ -50,11 +50,11 @@
 			
 			\vfill
 			\Large
-			\textbf{Alunos: Bobão 1}\\
-			\textbf{Alunos: Bobão 2}\\
-			\textbf{Alunos: Bobão 3}\\
+			\textbf{Alunos: Bruno Cayres Messias}\\
+			\textbf{Alunos: Eliseu Albano Junior}\\
+			\textbf{Alunos: Leonardo José Held}\\
 			
-			\textbf{Professor: Rambo} %Inserir nome completo do Rambo
+			\textbf{Professor: Carlos Renato Rambo} %Inserir nome completo do Rambo
 			\vspace{0.8cm}
 			
 			Departamento de Engenharia Elétrica e Eletrônica\\
@@ -216,7 +216,7 @@
 	
 	\subsection{Lei do circuito Homogêneo}
 	
-	A lei do circuito homogêneo enuncia que: “A F.E.M. termal, desenvolvida em um circuito termoelétrico de dois metais diferentes, com suas junções às temperaturas T1 e T2, é independente do gradiente de temperatura e de sua distribuição ao longo dos fios." Isso significa que, a F.E.M. medida depende única e exclusivamente da composição química dos dois metais e das temperaturas existentes nas junções.
+	A lei do circuito homogêneo enuncia que: ``A F.E.M. termal, desenvolvida em um circuito termoelétrico de dois metais diferentes, com suas junções às temperaturas T1 e T2, é independente do gradiente de temperatura e de sua distribuição ao longo dos fios." Isso significa que, a F.E.M. medida depende única e exclusivamente da composição química dos dois metais e das temperaturas existentes nas junções.
 	
 	\singlespacing
 	
@@ -233,7 +233,7 @@
 	
 	\subsection{Lei dos Metais Intermediários}
 	
-	A lei dos metais intermediários enuncia que: "A soma algébrica das F.E.M. termais, em um circuito composto de um número qualquer de metais diferentes, é zero se todo o circuito estiver à mesma temperatura”. Em outras palavras, esta lei estabelece que em um circuito, composto de dois metais diferentes, a tensão gerada não será modificada caso seja inserido um outro metal intermediário em qualquer ponto do circuito, desde que as junções recém formadas sejam mantidas a uma mesma temperatura devida. Isto ocorre devido ao fato de que a tensão gerada a partir destas duas novas junções será igual a zero. Este princípio por sua vez garante o uso de fios de extensão, bem como de conectores, como  representado na Figura \ref{lei2}.
+	A lei dos metais intermediários enuncia que: ``A soma algébrica das F.E.M. termais, em um circuito composto de um número qualquer de metais diferentes, é zero se todo o circuito estiver à mesma temperatura”. Em outras palavras, esta lei estabelece que em um circuito, composto de dois metais diferentes, a tensão gerada não será modificada caso seja inserido um outro metal intermediário em qualquer ponto do circuito, desde que as junções recém formadas sejam mantidas a uma mesma temperatura devida. Isto ocorre devido ao fato de que a tensão gerada a partir destas duas novas junções será igual a zero. Este princípio por sua vez garante o uso de fios de extensão, bem como de conectores, como  representado na Figura \ref{lei2}.
 	
 	\singlespacing
 	
@@ -264,6 +264,8 @@
 	
 	Termopares podem ser utilizados em equipamentos via medição de tensão, geralmente utilizando algum aspecto de instrumentação eletrônica. A partir da tensão mensurada, é possível calcular a temperatura utilizando métodos de \textit{look-up table} e interpolação. Com uma interpolação combinando métodos de segundo e terceiro é possível ter um erro mínimo para um bom \textit{range} de temperatura. 
 	
+	\section{Front-ends}
+	
 	É possível, ainda, comprar designs analógicos e digitais de referência para instrumentação de termopares. Um exemplo é o design \texttt{TIDA-00468} da \textit{Texas Instruments\textsuperscript{TM}}, que oferece sensoriamento de -270\degree C até +1372\degree C para termopares do tipo K.
 	
 	\begin{figure}[H]
@@ -274,9 +276,11 @@
 	
 	A escolha do design é importante, visto que o custo agregado ao sensoriamento pode ser até maior que o custo do dispositivo em si, apesar do sensoriamento digital ser relativamente barato no presente momento.
 	
+	\section{RITEG}
+	
 	Outras aplicações de termopares incluem transformação de energia térmica em energia elétrica. Um bom exemplo disso são \textbf{RITEG}s, \textit{Radioisotope Thermoelectric Generators}. Tais dispositivos são utilizados em diversos satélites e em missões espaciais. 
 	
-	O sistema consiste em um material radiotivo, que gera calor via decaimento $\alpha, \beta$ ou $\gamma$ de um núcleo radioativo (por exemplo, um cilindro de \texttt{plutônio-238}) com diversos termopares ao redor, com seus lados "frios" respectivamente grudados em aletas.
+	O sistema consiste em um material radiotivo, que gera calor via decaimento $\alpha, \beta$ ou $\gamma$ de um núcleo radioativo (por exemplo, um cilindro de \texttt{plutônio-238}) com diversos termopares ao redor, com seus lados ``frios" respectivamente grudados em aletas.
 	
 	\begin{figure}[H]
 		\centering
@@ -305,10 +309,9 @@
 		\includegraphics[scale=0.7]{apollo.jpg}\\
 		\caption{Um RITEG na Lua. Fonte: NASA/Alan Shepard PD-USGOV-NASA.}
 	\end{figure}
-
-	
 	
 	\begin{landscape}
+		\section{Características de alguns tipos de Termopares}
 			A seguinte tabela sumariza alguns - mas não todos - tipos de termopares comerciais e suas características físicas de acordo com [REFERÊNCIA]. Vale notar que essa tabela não leva em consideração, por exemplo, características mecânicas dos dispositivos, ou resistência a interferência eletromagnética.
 			
 			\vspace{2cm}
@@ -342,14 +345,28 @@
 		\footnotesize{Tabela 2.3.1. Fonte: National Institute of Standards and Technology.}
 		\end{center}
 	\end{landscape}
+	
+	Desenvolvendo um pouco mais sobre alguns tipos de termopares comuns, especificamente os tipos K, E J e T:
+	
+	\begin{itemize}
+		\item \textbf{K}: É um termopar genérico e de baixo custo construído normalmente com ligas de níquel, chromel como termoelétrico positivo e alumel como negativo, sua faixa de trabalho é de -270 \degree C a 1372 \degree C com uma sensibilidade aproximada de 41$\mu$V/\degree C. Devido as propriedades físicas dos materiais usados na construção, esse dispositivo possui uma alta resistência a oxidação.
+		
+		\item \textbf{E}: Dentre a maioria dos termopares disponíveis é o que possui maior potencial termoelétrico que é de aproximadamente 68 $\mu$V/\degree C, importante para detectar pequenas variações. Constituído de ligas de níquel, cromel como termoelétrico positivo e constantan como negativo, possui uma faixa de aferição que varia de -270 \degree C a 1000 \degree C.
+				
+		\item \textbf{J}: É um termopar feito com fios de ferro puro como termoelétrico positivo e constantan como negativo com faixa de operação variando de -210 \degree C a 1200 \degree C. Por a sua faixa de operação ser de uso limitado devido suas propriedades físicas que nos dão variações abruptas no potencial termoelétrico, torna-se pouco usual nos dias de hoje, tendo mais afinidade com equipamentos antigos.
+		
+		\item \textbf{T}: Composto por um fio de cobre puro como termoelétrico positivo e constantan como negativo, possui uma faixa de operação que varia de -240 \degree C a 400 \degree C, possuindo a menor faixa dentre os mais populares. Adequado para medições abaixo de 0 \degree C porém, para temperaturas acima de 300 \degree C o cobre passa a oxidar com mais intensidade diminuindo sua vida útil.
+		
+	\end{itemize}
+
 	Esses dispositivos também podem ser classificados em dois grupos principais:
 	
 	\begin{itemize}
 		\item Nobres: Contém ligas nobres na sua composição, como platina. Geralmente possuem uma temperatura mais alta de operaçã. Exemplos incluem os tipos R, S e B.
-		\item Base: Mais comuns, geralmente feitos com ligas de níquel em um ou ambos materiais. Exemplos incluem os tipos J, K, T e E. O nome "base" vem do inglês "\textit{base metal}", denotando um metal relativamente barato, oposto aos metais preciosos.
+		\item Base: Mais comuns, geralmente feitos com ligas de níquel em um ou ambos materiais. Exemplos incluem os tipos J, K, T e E. O nome ``base" vem do inglês ``\textit{base metal}", denotando um metal relativamente barato, oposto aos metais preciosos.
 	\end{itemize}
 	
-	\subsection{Construção}
+	\section{Construção}
 	
 	Tipos de termopares diferentes servem propósitos diferentes. Dentro dos tipos de junções, existem características de operação, e além disso, existem formas de construção que podem ser melhor utilizadas em algum ambientes específico. Questões como vibrações mecânicas, radiação ou operação Ininterrupta são considerações que devem ser realizadas ao escolher o tipo de termopar, e o próprio meio de instrumentação.
 	
@@ -363,7 +380,7 @@
 		\item Expostos: A junção é totalmente exposta, sem invólucro. Melhor tempo de resposta, porém é extremamente susceptível a corrosão.
 	\end{itemize}
 
-	\section{Simulações}
+	\section{Normas, calibração e simulações}
 	Argumentavelmente uma das melhores ferramentas disponíveis para o engenheiro é a simulação via computador, levando a questão de possibilidade de simulação de dispositivos termopares.
 	
 	Órgãos como a ABNT fazem estudos extensivos de caracterização de termopares em condições específicas, e é também possível encontrar dados sobre os diferentes dispositivos de fabricantes comerciais privados.
