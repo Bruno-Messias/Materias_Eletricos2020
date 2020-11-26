@@ -8,8 +8,10 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{mwe}
+\usepackage{textcomp} %Impede erros do gensymb
 \usepackage{gensymb} %Degree º symbol
 \usepackage{pdflscape} %landscape pages
+\usepackage{pdfpages} %For including PDFs with \includepdf
 \usepackage{amsmath}
 \usepackage{verbatim}
 \usepackage{amssymb}
@@ -40,18 +42,19 @@
 			EEL7051 - Materiais Elétricos\\
 			\vspace*{5cm}
 			\Huge
-			\textbf{PROJETO PRÁTICO DE MATERIAIS ELÉTRICOS:}\\
-			\textbf{TERMOPARES}
+			\textbf{PROJETO PRÁTICO DE MATERIAIS ELÉTRICOS}\\
+			\textbf{TERMOPARES:}\\
+			\textbf{Princípios, construção, normas e aspectos práticos}
 			
 			\vspace{1.5cm}
 			
 			\vfill
 			\Large
-			\textbf{Alunos: Bobão 1}\\
-			\textbf{Alunos: Bobão 2}\\
-			\textbf{Alunos: Bobão 3}\\
+			\textbf{Alunos: Bruno Cayres Messias}\\
+			\textbf{Alunos: Eliseu Albano Junior}\\
+			\textbf{Alunos: Leonardo José Held}\\
 			
-			\textbf{Professor: Rambo} %Inserir nome completo do Rambo
+			\textbf{Professor: Carlos Renato Rambo} %Inserir nome completo do Rambo
 			\vspace{0.8cm}
 			
 			Departamento de Engenharia Elétrica e Eletrônica\\
@@ -82,7 +85,7 @@
 		\label{real}
 	\end{figure}
 	
-	\chapter{Utilização}
+	\chapter{Princípios físicos}
 	Ao ser aplicada uma diferença de temperatura entre a junção de metais e as extremidades livres, haverá a geração de uma diferença de potencial da ordem de mV (milivolts) entre estas extremidades, da qual pode ser medida por um sistema de aquisição, utilizando-se comumente um multímetro como pode ser observado no esquemático da Figura \ref{esquematico}.
 	
 	\hfill \break
@@ -90,7 +93,7 @@
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[scale=.8]{ABAAAAJ_sAG-68.jpg}
+		\includegraphics[]{ABAAAAJ_sAG-68.jpg}
 		\caption{Utilização do Termopar tipo K}
 		\label{esquematico}
 	\end{figure}
@@ -189,20 +192,130 @@
 	\label{thompson_eq2}
 	\end{equation}
 	
-	\pagebreak
+		\section{Potência Termoelétrica}
 	
-	\section{Aplicações}
+	A potência termoelétrica é a relação que expressa a quantidade de milivolts, gerada a cada variação de $1^\degree C$ de variação de temperatura, expressa na Equação \ref{potencia_termoeletrica}.
+	
+	\begin{equation}
+	P_{T} = \frac{mV}{^{\circ}C}
+	\label{potencia_termoeletrica}
+	\end{equation}
+	
+	\singlespacing
+	
+	Como a tensão gerada por $1^{\circ}C$ de variação é um número muito pequeno e como a variação da F.E.M. gerada em função da temperatura não é linear, é usual definir-se a potência termoelétrica média no intervalo de utilização de cada termopar e multiplicar-se este valor por 100\degree C.
+	
+	\singlespacing
+	
+	A potência termelétrica é muito útil na caracterização e comparação dos termopares, indicando principalmente a sensibilidade do dispositivo. Quanto maior for a sua variação de tensão, mais sensível é o sensor.
+	
+	\newpage
+	\section{Leis Termoelétricas}
+	
+	Com a descoberta dos efeitos termoelétricos, a partir da aplicação das leis da termodinâmica, foi enunciado as três leis que contêm toda a base da teoria termoelétrica, aplicados em componentes como termopares. E Portanto a partir destas leis, podemos compreender todos os fenômenos que ocorrem na medida de temperatura com estes sensores. 
+	
+	\subsection{Lei do circuito Homogêneo}
+	
+	A lei do circuito homogêneo enuncia que: ``A F.E.M. termal, desenvolvida em um circuito termoelétrico de dois metais diferentes, com suas junções às temperaturas T1 e T2, é independente do gradiente de temperatura e de sua distribuição ao longo dos fios." Isso significa que, a F.E.M. medida depende única e exclusivamente da composição química dos dois metais e das temperaturas existentes nas junções.
+	
+	\singlespacing
+	
+	Um exemplo de aplicação prática desta lei é que podemos ter uma grande variação de temperatura em um ponto qualquer, ao longo dos fios dos Termopares, como esquematizado na Figura \ref{lei1}, que esta não influirá na F.E.M. produzida pela diferença de temperatura entre as juntas. Portanto, garante-se fazer medidas de temperatura em pontos bem definidos com os Termopares, pois o importante é a diferença de temperatura entre as juntas.
+	
+	\singlespacing
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=.4]{Lei1.jpg}
+		\caption{Exemplo da Lei do Circuito Homogêneo}
+		\label{lei1}
+	\end{figure}
+	
+	\subsection{Lei dos Metais Intermediários}
+	
+	A lei dos metais intermediários enuncia que: ``A soma algébrica das F.E.M. termais, em um circuito composto de um número qualquer de metais diferentes, é zero se todo o circuito estiver à mesma temperatura”. Em outras palavras, esta lei estabelece que em um circuito, composto de dois metais diferentes, a tensão gerada não será modificada caso seja inserido um outro metal intermediário em qualquer ponto do circuito, desde que as junções recém formadas sejam mantidas a uma mesma temperatura devida. Isto ocorre devido ao fato de que a tensão gerada a partir destas duas novas junções será igual a zero. Este princípio por sua vez garante o uso de fios de extensão, bem como de conectores, como  representado na Figura \ref{lei2}.
+	
+	\singlespacing
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=.5]{lei2.jpg}
+		\caption{Exemplo dos Metais Intermediários}
+		\label{lei2}
+	\end{figure}
+	
+	\newpage
+	\subsection{Lei das Temperaturas Intermediárias}
+	
+	“A F.E.M. produzida em circuito termoelétrico de dois metais homogêneos e diferentes entre si, com as suas junções às temperaturas T1 e T3 respectivamente, é a soma algébrica da F.E.M. deste circuito, com as junções às temperaturas T1 e T2, e a F.E.M. deste mesmo circuito, com as junções às temperaturas T2 e T3”. Podemos ver os esquema dessa lei representada na Figura \ref{lei3}.
+	
+	\singlespacing
+	
+	Assim, como consequência direta deste princípio, pode-se efetuar correções caso termopares que foram calibrados a uma determinada temperatura de referência possam ser utilizados em qualquer outra temperatura de referência.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=.4]{lei3.jpg}
+		\caption{Exemplo das Temperaturas Intermediárias}
+		\label{lei3}
+	\end{figure}
+	
+	\chapter{Aplicações}
 	
 	Termopares podem ser utilizados em equipamentos via medição de tensão, geralmente utilizando algum aspecto de instrumentação eletrônica. A partir da tensão mensurada, é possível calcular a temperatura utilizando métodos de \textit{look-up table} e interpolação. Com uma interpolação combinando métodos de segundo e terceiro é possível ter um erro mínimo para um bom \textit{range} de temperatura. 
 	
+	\section{Front-ends}
+	
 	É possível, ainda, comprar designs analógicos e digitais de referência para instrumentação de termopares. Um exemplo é o design \texttt{TIDA-00468} da \textit{Texas Instruments\textsuperscript{TM}}, que oferece sensoriamento de -270\degree C até +1372\degree C para termopares do tipo K.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.6]{tida.jpg}\\
+		\caption{Placa \textit{front-end} \texttt{TIDA-00468}, contendo sistema digital e filtros para termopares do tipo K. Fonte: Texas Instruments.}
+	\end{figure}
 	
 	A escolha do design é importante, visto que o custo agregado ao sensoriamento pode ser até maior que o custo do dispositivo em si, apesar do sensoriamento digital ser relativamente barato no presente momento.
 	
-	Na tabela a seguir é possível ver caraterísticas de operação de alguns tipos de termopares populares.
+	\section{RITEG}
+	
+	Outras aplicações de termopares incluem transformação de energia térmica em energia elétrica. Um bom exemplo disso são \textbf{RITEG}s, \textit{Radioisotope Thermoelectric Generators}. Tais dispositivos são utilizados em diversos satélites e em missões espaciais. 
+	
+	O sistema consiste em um material radiotivo, que gera calor via decaimento $\alpha, \beta$ ou $\gamma$ de um núcleo radioativo (por exemplo, um cilindro de \texttt{plutônio-238}) com diversos termopares ao redor, com seus lados ``frios" respectivamente grudados em aletas.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.06]{plutonium_pellet.jpg}\\
+		\caption{Pellet de Plutônio-238 do RTG da Curiosty Rover. Produz cerca de $110$W.\\ Fonte: Idaho National Laboratory CC-by-2.0.}
+	\end{figure}
+
+	Os termopares utilizados nesse caso específico das missões de telescópio são de silício-germânio (SiGe), e foram escolhidos para essa aplicação por apresentarem bom comportamento na \textit{range} de temperatura de trabalho e uma boa resistência mecânica, novamente enfatizando que a escolha de termopares vai muito além de alguns poucos parâmetros.
+\newpage
+	O esquema geral pode ser apresentado pelo seguinte esquemático:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{sige_rtg.png}\\
+		\caption{Esquemático de um RITEG. Fonte: Parker Beatty CC BY-SA 4.0.}
+	\end{figure}
+
+	O princípio de conversão de energia é explicado pelo já citado efeito \textit{Seeback} (ver seção 2.1). 
+	
+	Equipamentos desse tipo foram usados nas missões do programa Apollo, e um exemplo desse equipamento (em cinza, no centro) pode ser observado na seguinte fotografia tirada na Lua (outros módulos de outras missões que retornaram com os astronautas ainda se encontram no fundo do mar).
+	
+	Informações exatas quantificando a produção de energia por esses dispositivos são, no entanto, escassas.
+	
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.7]{apollo.jpg}\\
+		\caption{Um RITEG na Lua. Fonte: NASA/Alan Shepard PD-USGOV-NASA.}
+	\end{figure}
 	
 	\begin{landscape}
-		
+		\section{Características de alguns tipos de Termopares}
+			A seguinte tabela sumariza alguns - mas não todos - tipos de termopares comerciais e suas características físicas de acordo com [REFERÊNCIA]. Vale notar que essa tabela não leva em consideração, por exemplo, características mecânicas dos dispositivos, ou resistência a interferência eletromagnética.
+			
+			\vspace{2cm}
+			
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|c|c|}
 				\hline 
@@ -227,16 +340,33 @@
 				T  & Cu                 & Cu, 45\% Ni                         & 0.75\% or 1.0\degree C & -270 to 400 \\ 
 				\hline 
 			\end{tabular} 
+		\vspace{0.5cm}
+		
+		\footnotesize{Tabela 2.3.1. Fonte: National Institute of Standards and Technology.}
 		\end{center}
 	\end{landscape}
-	Esses dispositivos podem ser divididos em dois grupos principais:
+	
+	Desenvolvendo um pouco mais sobre alguns tipos de termopares comuns, especificamente os tipos K, E J e T:
+	
+	\begin{itemize}
+		\item \textbf{K}: É um termopar genérico e de baixo custo construído normalmente com ligas de níquel, chromel como termoelétrico positivo e alumel como negativo, sua faixa de trabalho é de -270 \degree C a 1372 \degree C com uma sensibilidade aproximada de 41$\mu$V/\degree C. Devido as propriedades físicas dos materiais usados na construção, esse dispositivo possui uma alta resistência a oxidação.
+		
+		\item \textbf{E}: Dentre a maioria dos termopares disponíveis é o que possui maior potencial termoelétrico que é de aproximadamente 68 $\mu$V/\degree C, importante para detectar pequenas variações. Constituído de ligas de níquel, cromel como termoelétrico positivo e constantan como negativo, possui uma faixa de aferição que varia de -270 \degree C a 1000 \degree C.
+				
+		\item \textbf{J}: É um termopar feito com fios de ferro puro como termoelétrico positivo e constantan como negativo com faixa de operação variando de -210 \degree C a 1200 \degree C. Por a sua faixa de operação ser de uso limitado devido suas propriedades físicas que nos dão variações abruptas no potencial termoelétrico, torna-se pouco usual nos dias de hoje, tendo mais afinidade com equipamentos antigos.
+		
+		\item \textbf{T}: Composto por um fio de cobre puro como termoelétrico positivo e constantan como negativo, possui uma faixa de operação que varia de -240 \degree C a 400 \degree C, possuindo a menor faixa dentre os mais populares. Adequado para medições abaixo de 0 \degree C porém, para temperaturas acima de 300 \degree C o cobre passa a oxidar com mais intensidade diminuindo sua vida útil.
+		
+	\end{itemize}
+
+	Esses dispositivos também podem ser classificados em dois grupos principais:
 	
 	\begin{itemize}
 		\item Nobres: Contém ligas nobres na sua composição, como platina. Geralmente possuem uma temperatura mais alta de operaçã. Exemplos incluem os tipos R, S e B.
-		\item Base: Mais comuns, geralmente feitos com ligas de níquel em um ou ambos materiais. Exemplos incluem os tipos J, K, T e E. O nome "base" vem do inglês "\textit{base metal}", denotando um metal relativamente barato, oposto aos metais preciosos.
+		\item Base: Mais comuns, geralmente feitos com ligas de níquel em um ou ambos materiais. Exemplos incluem os tipos J, K, T e E. O nome ``base" vem do inglês ``\textit{base metal}", denotando um metal relativamente barato, oposto aos metais preciosos.
 	\end{itemize}
 	
-	\subsection{Construção}
+	\section{Construção}
 	
 	Tipos de termopares diferentes servem propósitos diferentes. Dentro dos tipos de junções, existem características de operação, e além disso, existem formas de construção que podem ser melhor utilizadas em algum ambientes específico. Questões como vibrações mecânicas, radiação ou operação Ininterrupta são considerações que devem ser realizadas ao escolher o tipo de termopar, e o próprio meio de instrumentação.
 	
@@ -249,82 +379,64 @@
 		
 		\item Expostos: A junção é totalmente exposta, sem invólucro. Melhor tempo de resposta, porém é extremamente susceptível a corrosão.
 	\end{itemize}
+
+	\section{Normas, calibração e simulações}
+	Argumentavelmente uma das melhores ferramentas disponíveis para o engenheiro é a simulação via computador, levando a questão de possibilidade de simulação de dispositivos termopares.
 	
-	%gráficos equações----
-	\section{Potência Termoelétrica}
-
-	A potência termoelétrica é a relação que expressa a quantidade de milivolts, gerada a cada variação de $1^{\circ}C$ de variação de temperatura, expressa na Equação \ref{potencia_termoelétrica}.
+	Órgãos como a ABNT fazem estudos extensivos de caracterização de termopares em condições específicas, e é também possível encontrar dados sobre os diferentes dispositivos de fabricantes comerciais privados.
 	
-	\begin{equation}
-		P_{T} = \frac{mV}{^{\circ}C}
-		\label{potencia_termoelétrica}
-	\end{equation}
-
-	\singlespacing
-
-	Como a tensão gerada por $1^{\circ}C$ de variação é um número muito pequeno e como a variação da F.E.M. gerada em função da temperatura não é linear, é usual definir-se a potência termoelétrica média no intervalo de utilização de cada termopar e multiplicar-se este valor por 100°C.
-
-	\singlespacing
-
-	A potência termelétrica é muito útil na caracterização e comparação dos termopares, indicando principalmente a sensibilidade do dispositivo. Quanto maior for a sua variação de tensão, mais sensível é o sensor.
-
+	Na tabela seguinte, é possível observar alguns valores de temperatura versus EMF de um certo termopar, calculados pela ABNT.
 	
-	\section{Leis Termoelétricas}
-	
-	Com a descoberta dos efeitos termoelétricos, a partir da aplicação das leis da termodinâmica, foi enunciado as três leis que contêm toda a base da teoria termoelétrica, aplicados em componentes como termopares. E Portanto a partir destas leis, podemos compreender todos os fenômenos que ocorrem na medida de temperatura com estes sensores. 
-
-	\subsection{Lei do circuito Homogêneo}
-
-	A lei do circuito homogêneo enuncia que: “A F.E.M. termal, desenvolvida em um circuito termoelétrico de dois metais diferentes, com suas junções às temperaturas T1 e T2, é independente do gradiente de temperatura e de sua distribuição ao longo dos fios." Isso significa que, a F.E.M. medida depende única e exclusivamente da composição química dos dois metais e das temperaturas existentes nas junções.
-
-	\singlespacing
-
-	Um exemplo de aplicação prática desta lei é que podemos ter uma grande variação de temperatura em um ponto qualquer, ao longo dos fios dos Termopares, como esquematizado na Figura \ref{lei1}, que esta não influirá na F.E.M. produzida pela diferença de temperatura entre as juntas. Portanto, garante-se fazer medidas de temperatura em pontos bem definidos com os Termopares, pois o importante é a diferença de temperatura entre as juntas.
-
-	\singlespacing
-
-	\begin{figure}[htbp]
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=.4]{Lei1.jpg}
-		\caption{Exemplo da Lei do Circuito Homogêneo}
-		\label{lei1}
-	\end{figure}
-	
-	\subsection{Lei dos Metais Intermediários}
-
-	A lei dos metais intermediários enuncia que: "A soma algébrica das F.E.M. termais, em um circuito composto de um número qualquer de metais diferentes, é zero se todo o circuito estiver à mesma temperatura”. Em outras palavras, esta lei estabelece que em um circuito, composto de dois metais diferentes, a tensão gerada não será modificada caso seja inserido um outro metal intermediário em qualquer ponto do circuito, desde que as junções recém formadas sejam mantidas a uma mesma temperatura devida. Isto ocorre devido ao fato de que a tensão gerada a partir destas duas novas junções será igual a zero. Este princípio por sua vez garante o uso de fios de extensão, bem como de conectores, como  representado na Figura \ref{lei2}.
-
-	\singlespacing
-	
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[scale=.5]{lei2.jpg}
-		\caption{Exemplo dos Metais Intermediários}
-		\label{lei2}
-	\end{figure}
-	
-
-	\subsection{Lei das Temperaturas Intermediárias}
-
-	“A F.E.M. produzida em circuito termoelétrico de dois metais homogêneos e diferentes entre si, com as suas junções às temperaturas T1 e T3 respectivamente, é a soma algébrica da F.E.M. deste circuito, com as junções às temperaturas T1 e T2, e a F.E.M. deste mesmo circuito, com as junções às temperaturas T2 e T3”. Podemos ver os esquema dessa lei representada na Figura \ref{lei3}.
-	 
-	\singlespacing
-
-	Assim, como consequência direta deste princípio, pode-se efetuar correções caso termopares que foram calibrados a uma determinada temperatura de referência possam ser utilizados em qualquer outra temperatura de referência.
-
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[scale=.4]{lei3.jpg}
-		\caption{Exemplo das Temperaturas Intermediárias}
-		\label{lei3}
+		\includegraphics[scale=0.5]{abnttable.png}\\
+		\caption{Tabela de EMF versus Temperatura para um termopar tipo R. Fonte: ABNT NBR 12771:1999.}
 	\end{figure}
 
-	\section{Simulações}
-	
-	Simulações em Python ----
-	
+	É possível então empregar métodos matemáticos, afim de se aproximar o comportamento de cada dispositivo. O mais prático parece ser usar uma expansão polinomial de grau suficiente de forma a aproximar a curva de temperatura vs. EMF, seja com métodos como splines, aproximações integrais etc.
 
-	\section{Conclusão}
+	De forma que a tensão $\mathfrak{E}$ pode ser representada por
+	
+	\[\mathfrak{E}_{ref} = c_{0} + \sum_{k = 1}^{N}c_{i} \cdot t^{i}\]
+	
+	A ABNT - e outros órgãos, como o NIST - já cedem os coeficientes $c_{i}$, facilitando e ajudando no processo de homogenização de empresas que compram esses certificados.
+	
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{abntcoeffs.png}\\
+		\caption{Coeficientes polinomiais para um termopar tipo R. Fonte: ABNT NBR 12771:1999.}
+	\end{figure}
+
+	Dessa forma, é possível uniformizar e assegurar a qualidade de termopares fabricados sob normação, dado que a empresa que produz o produto pode criar sua própria tabela de temperatura vs EMF, derivar uma aproximação polinomial no intervalo desejado do tipo
+	
+	\[\mathfrak{E}_{mes} = a_{0} + \sum_{k = 1}^{N}a_{i} \cdot t^{i}\]
+	
+	e utilizar uma métrica de tolerância como
+	
+	\[\|\mathfrak{E}_{ref} - \mathfrak{E}_{mes}|\] 
+	
+	Também é possível utilizar um método como Newton-Raphson afim de obter a temperatura dado uma EMF medida, o que exige uma função de calibração que também pode ser encontrada em documentos da natureza da ABNT NBR 12771:1999.
+	
+	Os seguintes gráficos foram gerados e adaptadas usando a biblioteca \texttt{thermocouples\_reference}, que funciona com um envelope ao redor das curvas normadas de temperatura vs EMF da NIST, OMEGA e ASTM. É claro que possuímos um ambiente inerentemente discreto no computador digital, porém com boas referências de medidas reais, tomadas com rigidez e método científico, é possível obter resultados extremamente precisos por interpolação, com tolerâncias tão pequenas quanto quisermos.
+
+	\begin{figure}[htbp]
+	\includegraphics[scale=1]{src/lowTerm.pdf}
+	\includegraphics[scale=1]{src/medTerm.pdf}
+	\begin{center}
+		\includegraphics[scale=1]{src/highTerm.pdf}
+		
+		\caption{Gráficos de temperaturas vs EMF dos termopares citados na tabela 2.3.1. Fonte: Os autores utilizando biblioteca supracitada, com dados dos órgãos supracitados.}
+	\end{center}
+	\end{figure}
+
+\newpage
+
+	\chapter{Conclusão}
+	O estudo realizado demonstra que a classificação de termopares não é feita de forma binária, com peculiaridades em cada aplicação: tempo de resposta, faixa de temperatura, precisão e outras características supracitadas. Esses aspectos devem ser levados em consideração na hora de se escolher o tipo de termopar a ser usado para correta aferição de temperatura, ou seja, o melhor termopar é aquele que melhor se adequa a sua aplicação. 
+	
+	Vale contar, também, que o termopar é muito mais do que um dispositivo \textit{standalone}, e sim um transdutor que compõe parte de um sistema integral, numa junção multidisciplinar de física teórica, processamento e condicionamento de sinais, como observado em produtos comerciais especializados para tal.
+	
+	O esclarecimento dos processos que ocorrem, como o efeito Seebeck e o efeito Peltier nos permitem compreender o funcionamento desse dispositivo, e, de fato, como simular, tomar nota sobre seu comportamento e limitações.
 	
 	% \section{Referências}
 	\nocite{*}
